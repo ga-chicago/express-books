@@ -15,9 +15,12 @@ app.use(session( {
 
 var BookController = require('./controllers/BookController');
 var UserController = require('./controllers/UserController');
+var ReviewController = require('./controllers/ReviewController');
+
 
 app.use('/books', BookController);
 app.use('/users', UserController);
+app.use('/reviews', ReviewController);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

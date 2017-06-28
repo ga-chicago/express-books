@@ -1,0 +1,19 @@
+<h1>Title: {{name}}</h1>
+<h2>Author: {{author}}</h2>
+<h3>Pages: {{pages}}</h3>
+<h4>ISBN: {{isbn}}</h4>
+
+
+<!-- sends a post request to /reviews with a body that has a key
+of text and value of the input -->
+<form action="/reviews" method="POST">
+  <input name="text" placeholder="Type your review here"/>
+  <input name="bookId" value="{{id}}" />
+  <button>Submit</button>
+</form>
+
+<ol>
+{{#each reviews}}
+  <li>{{this.text}}</li>
+{{/each}}
+</ol>

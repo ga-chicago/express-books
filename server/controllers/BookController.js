@@ -17,6 +17,20 @@ router.get('/view', function(request, response){
   })
 })
 
+// GET request to /books/view/:id
+router.get('/view/:id', function(request, response){
+  var id = request.params.id;
+  Book.findById(id).populate('reviews').exec(function(error, book){
+    response.render('book', book);
+  })
+})
+
+////////////////////////////////////////
+////////////////////////////////////////
+////////////// JSON API ////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+
 router.get('/', function(request, response){
   //send all the books
   Book.find(function(error, books){
@@ -24,6 +38,7 @@ router.get('/', function(request, response){
   });
 })
 
+// Get to /books/id
 router.get('/:id', function(request, response){
   //send specific book with that id
   var id = request.params.id;

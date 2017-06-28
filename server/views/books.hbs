@@ -2,6 +2,6 @@
 
 <ul>
 {{#each allBooks}}
-  <li>{{this.name}} {{this.author}} {{this.pages}} {{this.isbn}}</li>
+  <li><a href="/books/view/{{this.id}}">{{this.name}}</a></li>
 {{/each}}
 </ul>
